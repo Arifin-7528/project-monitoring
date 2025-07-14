@@ -5,16 +5,21 @@ namespace App\Http\Controllers;
 use Storage;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\View\View;
 
 class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        $projects = Project::all();
-        return view('projects.index', compact('projects'));
+        // $projects = Project::all();
+        // return view('projects.index', compact('projects'));
+        return view('projects.index', [
+            'projects' => DB::table('projects')->paginate(1)
+        ]);
     }
     
 
