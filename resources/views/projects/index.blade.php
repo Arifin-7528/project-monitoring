@@ -4,6 +4,16 @@
 <div class="p-6 flex justify-center">
     <div class="w-full max-w-6xl">
 
+        <!-- Button Logout -->
+        <div class="w-full p-4 flex justify-end bg-gray-100">
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+                    Logout
+                </button>
+            </form>
+        </div>
+
         <!-- Judul -->
         <div class="flex justify-between items-center mb-4">
             <h1 class="text-2xl font-bold text-gray-800">Project Monitoring</h1>
@@ -60,38 +70,38 @@
                             <td class="p-3"
                                 <div class="w-full bg-gray-200 rounded-full h-4">
                                 <div class="h-4 rounded-full {{ $progress == 100 ? 'bg-green-500' : 'bg-blue-500' }}" style="width: {{ $progress }}%"></div>
-                                </div>
-                                <span class="text-sm">{{ $progress }}%</span>
-                            </td>
-                            <td class="p-3 flex gap-2">
-                                <!-- Update -->
-                                <a href="{{ route('projects.edit', $project->id) }}" class="text-blue-500 hover:text-blue-700">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5l3 3L13 14l-4 1 1-4 8.5-8.5z" />
-                                    </svg>
-                                </a>
-                                <!-- Delete -->
-                                <form action="{{ route('projects.destroy', $project->id) }}" method="POST" onsubmit="return confirm('Delete this data?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="text-red-500 hover:text-red-700">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                            stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-3h4m-4 0a1 1 0 00-1 1v1h6V5a1 1 0 00-1-1m-4 0h4" />
-                                        </svg>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
             </div>
+            <span class="text-sm">{{ $progress }}%</span>
+            </td>
+            <td class="p-3 flex gap-2">
+                <!-- Update -->
+                <a href="{{ route('projects.edit', $project->id) }}" class="text-blue-500 hover:text-blue-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5M18.5 2.5l3 3L13 14l-4 1 1-4 8.5-8.5z" />
+                    </svg>
+                </a>
+                <!-- Delete -->
+                <form action="{{ route('projects.destroy', $project->id) }}" method="POST" onsubmit="return confirm('Delete this data?')">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="text-red-500 hover:text-red-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-3h4m-4 0a1 1 0 00-1 1v1h6V5a1 1 0 00-1-1m-4 0h4" />
+                        </svg>
+                    </button>
+                </form>
+            </td>
+            </tr>
+            @endforeach
+            </tbody>
+            </table>
         </div>
-
     </div>
+
+</div>
 </div>
 @endsection
