@@ -19,6 +19,7 @@ class ProjectController extends Controller
         // return view('projects.index', compact('projects'));
         return view('projects.index', [
             'projects' => DB::table('projects')->paginate(1)
+            // ->fragment('Ini_data')
         ]);
     }
     
