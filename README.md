@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 # 🎯 Project Monitoring App
 
 Aplikasi sederhana untuk memantau progress proyek berdasarkan tanggal mulai dan selesai.
@@ -18,4 +15,3 @@ Aplikasi sederhana untuk memantau progress proyek berdasarkan tanggal mulai dan 
 
 ### Hapus Project
 ![Tambah](public/images/delete.png)
->>>>>>> ec77cba (add README with screenshots)
